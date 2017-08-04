@@ -881,6 +881,11 @@ namespace KaiwaProjects
             UpdatePanels(true);
         }
 
+        public void Open(byte[] imageContent)
+        {
+            this.Image = new Bitmap(new MemoryStream(imageContent), true);
+        }
+
         private void btnRotate270_Click(object sender, EventArgs e)
         {
             if (drawing != null)
@@ -971,6 +976,12 @@ namespace KaiwaProjects
         }
 
         private void btnFitToScreen_Click(object sender, EventArgs e)
+        {
+            drawing.FitToScreen();
+            UpdatePanels(true);
+        }
+
+        public void FitToScreen()
         {
             drawing.FitToScreen();
             UpdatePanels(true);

@@ -1,0 +1,8 @@
+D:\ProjekteGitHub\KpImageViewer-Extended\bin\Release\KP-ImageViewerV2.dll
+D:\ProjekteGitHub\KpImageViewer-Extended\bin\Release\KP-ImageViewerV2.pdb
+D:\ProjekteGitHub\KpImageViewer-Extended\obj\Release\KaiwaProjects.KpImageViewer.resources
+D:\ProjekteGitHub\KpImageViewer-Extended\obj\Release\KaiwaProjects.Properties.Resources.resources
+D:\ProjekteGitHub\KpImageViewer-Extended\obj\Release\KP-ImageViewerV2.csproj.GenerateResource.Cache
+D:\ProjekteGitHub\KpImageViewer-Extended\obj\Release\KP-ImageViewerV2.dll
+D:\ProjekteGitHub\KpImageViewer-Extended\obj\Release\KP-ImageViewerV2.pdb
+D:\ProjekteGitHub\KpImageViewer-Extended\obj\Release\KP-ImageViewerV2.csprojResolveAssemblyReference.cache

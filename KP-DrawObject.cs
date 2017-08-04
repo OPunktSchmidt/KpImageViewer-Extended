@@ -249,31 +249,39 @@ namespace KaiwaProjects
                             this.multiBmp = null;
                         }
 
-                        try
+                        pages = 1;
+                        multiPage = false;
+                        multiFrame = false;
+
+                        if (value.RawFormat.Equals(System.Drawing.Imaging.ImageFormat.Tiff))
                         {
-                            FrameDimension gifDimension = new FrameDimension(value.FrameDimensionsList[0]);
-                            int gifFrames = value.GetFrameCount(gifDimension);
-
-                            if (gifFrames > 1)
-                            {
-                                multiFrame = true;
-                            }
-                            else
-                            {
-                                multiFrame = false;
-                            }
-
-                            if (!multiFrame)
+                            try
                             {
                                 //Gets the total number of frames in the .tiff file
                                 pages = value.GetFrameCount(FrameDimension.Page);
                                 if (pages > 1) { multiPage = true; } else { multiPage = false; }
                             }
+                            catch
+                            {
+                                multiPage = false;
+                                pages = 1;
+                            }
                         }
-                        catch
+                        else if (value.RawFormat.Equals(System.Drawing.Imaging.ImageFormat.Gif))
                         {
-                            multiPage = false;
-                            pages = 1;
+                            if (!multiPage)
+                            {
+                                try
+                                {
+                                    FrameDimension gifDimension = new FrameDimension(value.FrameDimensionsList[0]);
+                                    int gifFrames = value.GetFrameCount(gifDimension);
+                                    if (gifFrames > 1) { multiFrame = true; } else { multiFrame = false; }
+                                }
+                                catch
+                                {
+                                    multiFrame = false;
+                                }
+                            }
                         }
 
                         if (multiFrame == true)
@@ -377,9 +385,11 @@ namespace KaiwaProjects
 
                         try
                         {
-                            string extension = Path.GetExtension(value);
+                            pages = 1;
+                            multiPage = false;
+                            multiFrame = false;
 
-                            if (extension == ".gif")
+                            if (temp.RawFormat.Equals(System.Drawing.Imaging.ImageFormat.Tiff))
                             {
                                 FrameDimension gifDimension = new FrameDimension(temp.FrameDimensionsList[0]);
                                 int gifFrames = temp.GetFrameCount(gifDimension);
@@ -393,7 +403,7 @@ namespace KaiwaProjects
                                     multiFrame = false;
                                 }
                             }
-                            else
+                            else if (temp.RawFormat.Equals(System.Drawing.Imaging.ImageFormat.Gif))
                             {
                                 multiFrame = false;
 
@@ -404,8 +414,9 @@ namespace KaiwaProjects
                         }
                         catch
                         {
-                            multiPage = false;
                             pages = 1;
+                            multiPage = false;
+                            multiFrame = false;
                         }
 
                         if (multiFrame == true)
