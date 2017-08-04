@@ -4,3 +4,5 @@ Customized and extended version of an image viewer control found on CodeProject.
 This is a customized version for my needs. Check out the following changelog:
 
 - The method FitToScreen() can now be called directly from KpImageViewer. So for example you can fit the image to the screen when the window size changes
+- Provides the new public method Open(byte[] imageContent). It's a very simple method with just one line of code but with this method you don't need to care about assigning a correctly assembled System.Drawing.Bitmap object to the Image property. 
+
